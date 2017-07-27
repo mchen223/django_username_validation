@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <title>Username Validation</title>
+   <meta name="Username Validation" content="Username Validation">
+
+</head>
+
+ <body>
+
+   {% if messages %}
+      {% for message in messages %}
+         <h3>{{ message }}</h3>
+      {% endfor %}
+   {% endif %}
+
+   <h2>Usernames Entered</h2>
+   <table>
+      <tr>
+         <th>Username</th>
+         <th>Date Entered</th>
+      </tr>
+         {%  for username in usernames  %}
+      <tr>
+         <td>{{  username.username  }}</td>
+         <td>{{  username.created_at  }}</td>
+         <td><a href="/delete/{{ username.id }}"><button>Delete</button></a>
+      </tr>
+         {%  endfor  %}
+   </table>
+   <a href="/"><button>Return</button></a>
+</body>
+
+</html>
